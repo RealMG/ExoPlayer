@@ -27,21 +27,12 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 
 /**
- * Ogg {@link Extractor}.
+ * Extracts data from the Ogg container format.
  */
 public class OggExtractor implements Extractor {
 
-  /**
-   * Factory for {@link OggExtractor} instances.
-   */
-  public static final ExtractorsFactory FACTORY = new ExtractorsFactory() {
-
-    @Override
-    public Extractor[] createExtractors() {
-      return new Extractor[] {new OggExtractor()};
-    }
-
-  };
+  /** Factory for {@link OggExtractor} instances. */
+  public static final ExtractorsFactory FACTORY = () -> new Extractor[] {new OggExtractor()};
 
   private static final int MAX_VERIFICATION_BYTES = 8;
 
